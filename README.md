@@ -1,7 +1,7 @@
 # PR71
 Admin admin@gmail.com admin
-Seller arona@gmail.com arona
-Buyer stan@gmail.com stan
+Seller arona@gmail.com 123456789
+Buyer stan@gmail.com 123456789
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.

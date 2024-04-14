@@ -18,7 +18,7 @@
     },
     {
       "agreetc": true,
-      "dob": "2024-01-02",
+      "dob": "2000-01-02",
       "email": "arona@gmail.com",
       "gender": "Male",
       "address": {
@@ -28,7 +28,7 @@
       },
       "mobNumber": "8446878784466465",
       "name": "Arona NGOM",
-      "password": "arona",
+      "password": "123456789",
       "uploadPhoto": "C:\\fakepath\\Angular 15 (29).png",
       "role": "seller",
       "id": "2"
@@ -45,7 +45,7 @@
       },
       "mobNumber": "83685222555",
       "name": "Stanislas HOFFMANN",
-      "password": "stan",
+      "password": "123456789",
       "uploadPhoto": "C:\\fakepath\\Angular 15 (32).png",
       "role": "buyer",
       "id": "3"
@@ -83,6 +83,23 @@
       "uploadPhoto": "C:\\fakepath\\Angular 17 Admin (6).png",
       "role": "seller",
       "id": "5"
+    },
+    {
+      "id": "d3cc",
+      "agreetc": true,
+      "dob": "2000-02-10",
+      "email": "me@gmail.com",
+      "gender": "Male",
+      "address": {
+        "id": 0,
+        "addLine1": "azdazdaz",
+        "zipCode": "90000"
+      },
+      "mobNumber": "0908070761",
+      "name": "Me",
+      "password": "me",
+      "uploadPhoto": "C:\\fakepath\\validerPage.png",
+      "role": "buyer"
     }
   ],
   "products": [
@@ -326,6 +343,69 @@
         "zipCode": "2359865"
       },
       "contact": "86744645764",
+      "dateTime": "14/04/2024"
+    },
+    {
+      "id": 0,
+      "userId": 3,
+      "sellerId": 2,
+      "product": {
+        "id": "1",
+        "name": "Polyester Door Curtain",
+        "uploadPhoto": "https://rukminim1.flixcart.com/image/832/832/jcf487k0/curtain/w/e/y/elegant-cream-door-curtains-set-of-2-213-soe-fsb-120-120-eyelet-original-imaffk7f9wng4v4m.jpeg",
+        "productDesc": "Transform the ambiance of your home with these elegant, crushed texture, light weight, solid color curtains. These curtains are available in several colors and sizes to match to your home decor and the gracefully flowing polyester is durable and machine washable for your convenience.",
+        "mrp": "1000",
+        "dp": "499",
+        "status": "publish"
+      },
+      "deliveryAddress": {
+        "id": 0,
+        "addLine1": "new delho",
+        "zipCode": "325863558"
+      },
+      "contact": "83685222555",
+      "dateTime": "14/04/2024"
+    },
+    {
+      "id": 0,
+      "userId": 3,
+      "sellerId": 2,
+      "product": {
+        "id": "2",
+        "name": "Water Bottle",
+        "uploadPhoto": "https://rukminim1.flixcart.com/image/832/832/bottle/w/5/g/1000-cello-h2o-cello-h2o-water-bottel-cello-original-imaeqtj3vyxyehmn.jpeg",
+        "productDesc": "Hygienic bottle: The bottle is made of 100% food grade material & is BPA free ensures a safe drinking. Crystal Clarity: It's sheer body helps to easily identify the contents & also adds beauty to the liquid that you put in, Leak Proof: The bottle has a liquid tight cap that prevents leakage & is unbreakable. Freezer safe: These bottles are compatible with refrigerator & not being curvy the bottle occupies less space. Looks pretty in the fridge or on the table top.",
+        "mrp": "123",
+        "dp": "99",
+        "status": "publish"
+      },
+      "deliveryAddress": {
+        "id": 0,
+        "addLine1": "new delho",
+        "zipCode": "325863558"
+      },
+      "contact": "83685222555",
+      "dateTime": "14/04/2024"
+    },
+    {
+      "id": 0,
+      "userId": 3,
+      "sellerId": 2,
+      "product": {
+        "id": "0",
+        "name": "MyProd1",
+        "uploadPhoto": "https://rukminim1.flixcart.com/image/832/832/jcf487k0/curtain/w/e/y/elegant-cream-door-curtains-set-of-2-213-soe-fsb-120-120-eyelet-original-imaffk7f9wng4v4m.jpeg",
+        "productDesc": "Stan",
+        "mrp": "1000",
+        "dp": "10",
+        "status": "publish"
+      },
+      "deliveryAddress": {
+        "id": 0,
+        "addLine1": "new delho",
+        "zipCode": "325863558"
+      },
+      "contact": "83685222555",
       "dateTime": "14/04/2024"
     }
   ]
