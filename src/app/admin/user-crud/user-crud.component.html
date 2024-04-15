@@ -10,11 +10,11 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">id</th>
       <th scope="col">Name</th>
-      <th scope="col">Mob</th>
+      <th scope="col">Mobile</th>
       <th scope="col">Email</th>
-      <th scope="col">DOB</th>
+      <th scope="col">Date of birth</th>
       <th scope="col">Role</th>
       <th scope="col">Action</th>
     </tr>
@@ -28,10 +28,10 @@
       <td>{{user_data.dob}}</td>
       <td>{{user_data.role}}</td>
       <td>
-        <span class="sim-pointer" (click)="editUserPopup(user_data.id)" data-bs-toggle="modal"
+        <span class="sim-pointer btn btn-primary" (click)="editUserPopup(user_data.id)" data-bs-toggle="modal"
           data-bs-target="#addEditUserModal">Edit</span>
         &nbsp;&nbsp;&nbsp;
-        <span class="sim-pointer" (click)="deleteUser(user_data.id)">Del</span>
+        <span class="sim-pointer btn btn-danger" (click)="deleteUser(user_data.id)">Delete</span>
       </td>
     </tr>
   </tbody>

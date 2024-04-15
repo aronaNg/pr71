@@ -30,7 +30,7 @@ export class SellerDashboardComponent implements OnInit{
     this.router.navigateByUrl("/seller/product")
   }
   sellerOrderDashboard(){
-    alert("this option for only WIP candidates")
+    alert("Work in progress..")
   }
   sellerOrderDashboardData(){
     this.customerService.orderDashboardData().subscribe(data=>{
