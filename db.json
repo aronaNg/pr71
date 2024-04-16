@@ -77,6 +77,23 @@
       "uploadPhoto": "C:\\fakepath\\Angular 17 Admin (6).png",
       "role": "seller",
       "id": "5"
+    },
+    {
+      "id": "6",
+      "agreetc": true,
+      "dob": "2000-09-12",
+      "email": "mouss@gmail.com",
+      "gender": "Male",
+      "address": {
+        "id": 0,
+        "addLine1": "jjjjjzz",
+        "zipCode": "90000"
+      },
+      "mobNumber": "0908070605",
+      "name": "Mouss",
+      "password": "moussmouss",
+      "uploadPhoto": "C:\\fakepath\\validerPage.png",
+      "role": "buyer"
     }
   ],
   "products": [

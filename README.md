@@ -1,4 +1,5 @@
 # PR71
+Un bug dans l'inscription, après l'ajout des éléments, faut aller dans db.json et modifier l'id de l'user
 Admin admin@gmail.com admin
 Seller arona@gmail.com 123456789
 Buyer stan@gmail.com 123456789
