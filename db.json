@@ -84,12 +84,22 @@
       "uploadPhoto": "C:\\fakepath\\Angular 17 Admin (6).png",
       "role": "seller",
       "id": "5"
+    },
+    {
+      "id": "21e8",
+      "dob": "4333-04-13",
+      "email": "aa",
+      "mobNumber": "aaa",
+      "name": "aaa",
+      "password": "aa",
+      "uploadPhoto": "C:\\fakepath\\validerPage.png",
+      "role": "seller"
     }
   ],
   "products": [
     {
       "id": "1",
-      "name": "Globe",
+      "name": "Globe1",
       "uploadPhoto": "./assets/img/1.png",
       "productDesc": "Globe terrestre vintage, témoin silencieux des explorations passées et des horizons à venir. Élégamment monté sur son socle en bois, ce globe capture l'imagination avec ses couleurs subtiles et ses détails précis.",
       "mrp": "1000",
@@ -167,15 +177,6 @@
       "mrp": "300",
       "dp": "100",
       "status": "publish"
-    },
-    {
-      "id": "10",
-      "name": "Aspirateur",
-      "uploadPhoto": "./assets/img/10.png",
-      "productDesc": "Petit aspirateur orange, symbole de l'ère vintage du ménage. Compact et pratique, il se faufile aisément dans les recoins pour un nettoyage efficace.",
-      "mrp": "500",
-      "dp": "470",
-      "status": "inactive"
     },
     {
       "id": "11",
@@ -320,15 +321,6 @@
       "mrp": "800",
       "dp": "600",
       "status": "inactive"
-    },
-    {
-      "id": 0,
-      "name": "AR",
-      "uploadPhoto": "test",
-      "productDesc": "Desc",
-      "mrp": "200",
-      "dp": "12",
-      "status": "publish"
     }
   ],
   "orders": [
@@ -522,7 +514,7 @@
       "dateTime": "15/04/2024"
     },
     {
-      "id": 0,
+      "id": "0",
       "userId": 3,
       "sellerId": 2,
       "product": {

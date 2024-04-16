@@ -8,7 +8,7 @@ import { DataTablesModule } from 'angular-datatables';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, DataTablesModule],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent,DataTablesModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -16,7 +16,7 @@ export class AppComponent {
   screenHeight:any;
   screenWidth:any;
   footerMaxHeight!:number;
-  title = 'angularecommerce';
+  title = 'Projetpr71';
 
   constructor(){
     this.getScreenSize(event);

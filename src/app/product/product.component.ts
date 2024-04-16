@@ -1,19 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Product } from '../core/Model/object-model';
 import { Router } from '@angular/router';
 import { ProductService } from '../shared/services/product.service';
 import { DataTablesModule } from 'angular-datatables';
 import { Subject } from 'rxjs';
+declare var $:any;
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule,DataTablesModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, DataTablesModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
-export class ProductComponent implements OnInit{
+export class ProductComponent implements OnInit, OnDestroy{
   all_product_data:any
   addEditProductDForm!:FormGroup;
   addEditProduct:boolean = false;
@@ -34,10 +35,11 @@ export class ProductComponent implements OnInit{
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      paging: true,
-      searching: true,
       pageLength: 10,
       dom: 'Bfrtip',
+      processing: true,
+      sorting: true,
+
     };
     this.addEditProductDForm = this.fb.group({
       name:['',Validators.required],
@@ -49,6 +51,9 @@ export class ProductComponent implements OnInit{
     })
     this.getAllProduct()
 
+  }
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
   }
   get rf(){
     return this.addEditProductDForm.controls;

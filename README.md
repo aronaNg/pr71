@@ -2,7 +2,7 @@
 Admin admin@gmail.com admin
 Seller arona@gmail.com 123456789
 Buyer stan@gmail.com 123456789
-
+Pour activer les data table, il faut modifier le fichier html product component
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
 
