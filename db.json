@@ -129,7 +129,7 @@
       "name": "Montre",
       "uploadPhoto": "./assets/img/4.png",
       "productDesc": "Montre à gousset classique, un véritable bijou d'antan. Élégante et sophistiquée, elle incarne le charme intemporel des temps anciens. Parfaitement fonctionnelle, elle est prête à ajouter une touche de distinction à votre style. Un accessoire de choix pour les amateurs de tradition et d'histoire.",
-      "mrp": "400",
+      "mrp": "500",
       "dp": "200",
       "status": "inactive"
     },
@@ -321,6 +321,15 @@
       "mrp": "800",
       "dp": "600",
       "status": "inactive"
+    },
+    {
+      "id": "[object Object]1",
+      "name": "me",
+      "uploadPhoto": "aaaaa",
+      "productDesc": "aaaa",
+      "mrp": "12",
+      "dp": "1",
+      "status": "publish"
     }
   ],
   "orders": [
@@ -533,6 +542,27 @@
       },
       "contact": "0690083421",
       "dateTime": "15/04/2024"
+    },
+    {
+      "id": "0",
+      "userId": 3,
+      "sellerId": 2,
+      "product": {
+        "id": "1",
+        "name": "Globe1",
+        "uploadPhoto": "./assets/img/1.png",
+        "productDesc": "Globe terrestre vintage, témoin silencieux des explorations passées et des horizons à venir. Élégamment monté sur son socle en bois, ce globe capture l'imagination avec ses couleurs subtiles et ses détails précis.",
+        "mrp": "1000",
+        "dp": "499",
+        "status": "publish"
+      },
+      "deliveryAddress": {
+        "id": 0,
+        "addLine1": "Jean jaures",
+        "zipCode": "90001"
+      },
+      "contact": "0690083421",
+      "dateTime": "16/04/2024"
     }
   ]
 }

@@ -23,7 +23,14 @@ export class Product{
   mrp!:number;
   dp!:number;
   status!:boolean;
+  category?:Category;
 }
+
+export class Category{
+  id!:number;
+  name!:string;
+}
+
 export class Order{
   id!:number;
   userId!:number;

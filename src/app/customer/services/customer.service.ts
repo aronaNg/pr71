@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../../core/service/api.service';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Category, Product } from '../../core/Model/object-model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class CustomerService {
   public user_url="http://localhost:3000/user/";
   public product_url="http://localhost:3000/products/";
   public order_url="http://localhost:3000/orders/";
+  product!: Product
 
   constructor(private apiService:ApiService) { }
   allProduct():Observable<any>{
@@ -35,4 +37,16 @@ export class CustomerService {
   productDashboardData():Observable<any>{
     return this.apiService.get(this.product_url);
   }
+
+  getDatabyCategory(category : Category) : Observable<any> {
+    return this.apiService.get(this.product_url + category.name)
+  }
+
+  getPrdByIndex(prd_idx: number):Product {
+    this.apiService.get(this.product_url+ prd_idx)
+    .subscribe(data => {
+    this.product = data
+    })
+    return this.product
+    }
 }

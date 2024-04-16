@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CustomerService } from '../../services/customer.service';
+import { Category, Product } from '../../../core/Model/object-model';
 
 @Component({
   selector: 'app-buyer-dashboad',
@@ -13,6 +14,9 @@ import { CustomerService } from '../../services/customer.service';
 export class BuyerDashboadComponent implements OnInit{
   all_products:any;
   show_Checkout:boolean =false;
+  categories: Category[] = []
+  @Input() product !: Product
+  @Input() prd_index !: number
 
   constructor(private router:Router, private customerService:CustomerService){}
 
@@ -34,6 +38,16 @@ export class BuyerDashboadComponent implements OnInit{
     this.router.navigateByUrl('/checkout');
   }
   addToCart(){
-    alert("This is showcase")
+    alert("Work in progress...")
   }
+  FilterbyCategory(category : Category){
+    if (category.name != 'All')
+      this.customerService.getDatabyCategory(category).subscribe(data => {
+      this.all_products = data
+    })
+    else
+      this.customerService.allProduct().subscribe( data => {
+      this.all_products = data
+    })
+    }
 }

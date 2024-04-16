@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ProductService } from '../shared/services/product.service';
 import { DataTablesModule } from 'angular-datatables';
 import { Subject } from 'rxjs';
+
 declare var $:any;
 @Component({
   selector: 'app-product',
@@ -27,6 +28,8 @@ export class ProductComponent implements OnInit, OnDestroy{
   edit_product_id:any;
   dtOptions: any = {};
   dtTrigger:Subject<any> = new Subject();
+  showSuccessAlert: boolean = false;
+  showSuccessUpdate: boolean = false;
 
   constructor(private fb:FormBuilder, private router:Router, private productService:ProductService){
 
@@ -79,8 +82,12 @@ export class ProductComponent implements OnInit, OnDestroy{
       return;
     }
     this.product_data = this.addEditProductDForm.value;
+    // let newId = 0;
+    // if (this.all_product_data && this.all_product_data.length > 0) {
+    //   newId = Math.max(...this.all_product_data.map((product: any) => product.id)) + 1;
+    // }
     this.product_dto = {
-      id:0,
+      id:this.product_data+1,
       name:this.product_data.name,
       uploadPhoto:this.product_data.uploadPhoto,
       productDesc:this.product_data.productDesc,
@@ -91,9 +98,19 @@ export class ProductComponent implements OnInit, OnDestroy{
     this.productService.addNewProduct(this.product_dto).subscribe(data=>{
       console.log(data);
       this.getAllProduct();
+      this.showSuccessAlert = true;
+      setTimeout(() => {
+        this.showSuccessAlert = false;
+      }, 3000);
     },error=>{
       console.log("my error", error)
     })
+  }
+  dismissAlert() {
+    this.showSuccessAlert = false;
+  }
+  dismissUpdateAlert() {
+    this.showSuccessUpdate = false;
   }
   editProductPopup(id:any){
     this.add_product = false;
@@ -131,6 +148,10 @@ export class ProductComponent implements OnInit, OnDestroy{
     }
     this.productService.updateProduct(this.edit_product_id,this.product_dto).subscribe(data=>{
       this.getAllProduct();
+      this.showSuccessUpdate = true;
+      setTimeout(() => {
+        this.showSuccessUpdate = false;
+      }, 3000);
 
     },error=>{
       console.log("my error", error)

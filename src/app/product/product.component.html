@@ -2,6 +2,15 @@
 <div class="row">
   <div class="col-md-10">
     <strong>All Product List</strong>
+    <div *ngIf="showSuccessAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+      Product added successfully!
+      <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+    </div>
+
+    <div *ngIf="showSuccessUpdate" class="alert alert-info alert-dismissible fade show" role="alert">
+      Product updated successfully!
+      <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+    </div>
   </div>
   <div class="col-md-2">
     <button class=" btn btn-dark float-right" type="button" (click)="addProductPopup()" data-bs-toggle="modal" data-bs-target="#addEditProductModal">Add Product</button>
@@ -60,11 +69,11 @@
                 <textarea rows="3" class="form-control" formControlName="productDesc"></textarea>
               </div>
               <div class="form-group">
-                <label for="productMRP">Product MRP</label>
+                <label for="productMRP">Product price</label>
                 <input type="text" class="form-control" formControlName="mrp">
               </div>
               <div class="form-group">
-                <label for="productDP">Product DP</label>
+                <label for="productDP">Discount</label>
                 <input type="text" class="form-control" formControlName="dp">
               </div>
               <div class="form-group">

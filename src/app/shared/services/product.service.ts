@@ -2,12 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiService } from '../../core/service/api.service';
 import { Observable } from 'rxjs';
+import { Category, Product } from '../../core/Model/object-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  product!: Product
+  Array : Product[] = []
   public product_url="http://localhost:3000/products/"
+
 
   constructor(private httpClient:HttpClient, private apiService:ApiService) { }
   allProduct():Observable<any>{
@@ -25,4 +29,9 @@ export class ProductService {
   deleteProduct(id:any):Observable<any>{
     return this.apiService.delete(this.product_url+id);
   }
+  getDatabyCategory(category : Category) : Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.product_url + category.name)
+  }
+
+
 }
