@@ -4,11 +4,12 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Product } from '../core/Model/object-model';
 import { Router } from '@angular/router';
 import { ProductService } from '../shared/services/product.service';
-
+import { DataTablesModule } from 'angular-datatables';
+import { Subject } from 'rxjs';
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule,DataTablesModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
@@ -17,18 +18,27 @@ export class ProductComponent implements OnInit{
   addEditProductDForm!:FormGroup;
   addEditProduct:boolean = false;
   popup_header!:string;
-  add_prouct!:boolean;
-  edit_prouct!:boolean;
-  prouct_data:any;
+  add_product!:boolean;
+  edit_product!:boolean;
+  product_data:any;
   single_product_data:any;
   product_dto!:Product
   edit_product_id:any;
+  dtOptions: any = {};
+  dtTrigger:Subject<any> = new Subject();
 
   constructor(private fb:FormBuilder, private router:Router, private productService:ProductService){
 
   }
 
   ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      paging: true,
+      searching: true,
+      pageLength: 10,
+      dom: 'Bfrtip',
+    };
     this.addEditProductDForm = this.fb.group({
       name:['',Validators.required],
       uploadPhoto:['',Validators.required],
@@ -38,6 +48,7 @@ export class ProductComponent implements OnInit{
       status:['',Validators.required],
     })
     this.getAllProduct()
+
   }
   get rf(){
     return this.addEditProductDForm.controls;
@@ -45,14 +56,15 @@ export class ProductComponent implements OnInit{
   getAllProduct(){
     this.productService.allProduct().subscribe(data =>{
       this.all_product_data = data;
-      console.log("My All product", this.all_product_data)
+      console.log("My All product", this.all_product_data);
+      this.dtTrigger.next(null);
     }, error =>{
-      console.log("Somthing went wrong ", error)
+      console.log("Something went wrong ", error)
     })
   }
   addProductPopup(){
-    this.add_prouct = true;
-    this.edit_prouct = false;
+    this.add_product = true;
+    this.edit_product = false;
     this.popup_header = "Add new Product";
     this.addEditProductDForm.reset();
   }
@@ -61,15 +73,15 @@ export class ProductComponent implements OnInit{
     if(this.addEditProductDForm.invalid){
       return;
     }
-    this.prouct_data = this.addEditProductDForm.value;
+    this.product_data = this.addEditProductDForm.value;
     this.product_dto = {
       id:0,
-      name:this.prouct_data.name,
-      uploadPhoto:this.prouct_data.uploadPhoto,
-      productDesc:this.prouct_data.productDesc,
-      mrp:this.prouct_data.mrp,
-      dp:this.prouct_data.dp,
-      status:this.prouct_data.status,
+      name:this.product_data.name,
+      uploadPhoto:this.product_data.uploadPhoto,
+      productDesc:this.product_data.productDesc,
+      mrp:this.product_data.mrp,
+      dp:this.product_data.dp,
+      status:this.product_data.status,
     }
     this.productService.addNewProduct(this.product_dto).subscribe(data=>{
       console.log(data);
@@ -79,8 +91,8 @@ export class ProductComponent implements OnInit{
     })
   }
   editProductPopup(id:any){
-    this.add_prouct = false;
-    this.edit_prouct = true;
+    this.add_product = false;
+    this.edit_product = true;
     this.popup_header = "Edit Product";
     this.addEditProductDForm.reset();
     this.productService.singleProduct(id).subscribe(data=>{
@@ -102,15 +114,15 @@ export class ProductComponent implements OnInit{
     if(this.addEditProductDForm.invalid){
       return;
     }
-    this.prouct_data = this.addEditProductDForm.value;
+    this.product_data = this.addEditProductDForm.value;
     this.product_dto = {
       id:0,
-      name:this.prouct_data.name,
-      uploadPhoto:this.prouct_data.uploadPhoto,
-      productDesc:this.prouct_data.productDesc,
-      mrp:this.prouct_data.mrp,
-      dp:this.prouct_data.dp,
-      status:this.prouct_data.status,
+      name:this.product_data.name,
+      uploadPhoto:this.product_data.uploadPhoto,
+      productDesc:this.product_data.productDesc,
+      mrp:this.product_data.mrp,
+      dp:this.product_data.dp,
+      status:this.product_data.status,
     }
     this.productService.updateProduct(this.edit_product_id,this.product_dto).subscribe(data=>{
       this.getAllProduct();

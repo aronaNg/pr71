@@ -7,7 +7,7 @@
     <button class=" btn btn-dark float-right" type="button" (click)="addProductPopup()" data-bs-toggle="modal" data-bs-target="#addEditProductModal">Add Product</button>
   </div>
 </div>
-<table class="table table-hover">
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -74,8 +74,8 @@
                 </select>
               </div>
               <div class="form-group">
-                <button class="btn btn-primary" (click)="addNewProduct()" *ngIf="add_prouct">Add Product</button>
-                <button class="btn btn-warning" (click)="updateProduct()" *ngIf="edit_prouct">Update Product</button>
+                <button class="btn btn-primary" (click)="addNewProduct()" *ngIf="add_product">Add Product</button>
+                <button class="btn btn-warning" (click)="updateProduct()" *ngIf="edit_product">Update Product</button>
               </div>
             </form>
           </div>

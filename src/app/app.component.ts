@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/layouts/header/header.component';
 import { FooterComponent } from './shared/layouts/footer/footer.component';
+import { DataTablesModule } from 'angular-datatables';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, DataTablesModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
