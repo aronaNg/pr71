@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2c3e50;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img [src]="getImagePath()" width="40" height="35" class="d-inline-block align-top" alt="">
+    <a class="navbar-brand  mt-2" href="#">
+      <img [src]="getImagePath()" width="40" height="40" class="d-inline-block align-top" alt="">
       Goodeal
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,25 +10,25 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link nav-link-custom" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item" *ngIf="user_role =='buyer'">
-          <a class="nav-link" routerLink="/buyer-dashboard">Order</a>
+          <a class="nav-link nav-link-custom" routerLink="/buyer-dashboard">Order</a>
         </li>
         <li class="nav-item" *ngIf="user_role =='admin'">
-          <a class="nav-link " routerLink="/buyer-dashboard">All Order</a>
+          <a class="nav-link nav-link-custom " routerLink="/buyer-dashboard">All Order</a>
         </li>
         <li class="nav-item" *ngIf="user_role =='seller'">
-          <a class="nav-link " routerLink="/seller/product">Product</a>
+          <a class="nav-link nav-link-custom" routerLink="/seller/product">Product</a>
         </li>
         <li class="nav-item" *ngIf="user_role =='admin'">
-          <a class="nav-link " routerLink="/admin/product">All Product</a>
+          <a class="nav-link  nav-link-custom" routerLink="/admin/product">All Product</a>
         </li>
         <li class="nav-item" *ngIf="user_role =='admin'">
-          <a class="nav-link " routerLink="/admin/user">Users</a>
+          <a class="nav-link nav-link-custom" routerLink="/admin/user">Users</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " routerLink="/contact-us">Contact Us</a>
+          <a class="nav-link nav-link-custom" routerLink="/contact-us">Contact Us</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -37,18 +37,19 @@
       </form>
       <ul class="navbar-nav ml-auto"  *ngIf="!logged_in">
         <li class="nav-item">
-            <a class="nav-link" routerLink="/sign-in">Sign In</a>
+            <a class="nav-link nav-link-custom" routerLink="/sign-in">Sign In</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" routerLink="/sign-up">Sign Up</a>
+            <a class="nav-link nav-link-custom" routerLink="/sign-up">Sign Up</a>
         </li>
     </ul>
     <ul class="navbar-nav ml-auto" *ngIf="logged_in">
         <li class="nav-item">
-            <a class="nav-link sim-pointer" routerLink="/my-profile">My Profile</a>
+            <a class="nav-link nav-link-custom sim-pointer" routerLink="/my-profile">My Profile <i class="fas fa-user"></i></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link sim-pointer" (click)="logout()">Log Out</a>
+            <a class="nav-link nav-link-custom sim-pointer" (click)="logout()">Log Out  <i class="fas fa-sign-out-alt"></i></a>
+
         </li>
     </ul>
 
