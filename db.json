@@ -69,31 +69,14 @@
       "id": "4"
     },
     {
-      "agreetc": true,
       "dob": "1998-12-02",
       "email": "test@gmail.com",
-      "gender": "Male",
-      "address": {
-        "id": 0,
-        "addLine1": "Gare de belfort",
-        "zipCode": "90000"
-      },
       "mobNumber": "0735859023",
       "name": "Test",
       "password": "123456789",
       "uploadPhoto": "C:\\fakepath\\Angular 17 Admin (6).png",
       "role": "seller",
       "id": "5"
-    },
-    {
-      "id": "21e8",
-      "dob": "4333-04-13",
-      "email": "aa",
-      "mobNumber": "aaa",
-      "name": "aaa",
-      "password": "aa",
-      "uploadPhoto": "C:\\fakepath\\validerPage.png",
-      "role": "seller"
     }
   ],
   "products": [

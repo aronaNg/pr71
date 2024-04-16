@@ -52,32 +52,47 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-md-10 offset-md-1">
-            <form [formGroup]="addEditUserForm">
+            <form [formGroup]="addEditUserForm" (ngSubmit)="onSubmit()">
               <div class="form-group">
                 <label>Name</label>
                 <input type="text" class="form-control" formControlName="name" />
+                <div *ngIf="formControls['name'].invalid && formControls['name'].touched" class="text-danger">
+                  Name is required.
+                </div>
 
               </div>
               <div class="form-group">
                 <label>Mobile Number</label>
                 <input type="tel" class="form-control" formControlName="mobNumber" />
+                <div *ngIf="formControls['mobNumber'].invalid && formControls['mobNumber'].touched" class="text-danger">
+                  The lentgh must be 10.
+                </div>
 
               </div>
 
               <div class="form-group">
                 <label>Enter Your DOB</label>
                 <input type="date" class="form-control" formControlName="dob" />
+                <div *ngIf="formControls['dob'].invalid && formControls['dob'].touched" class="text-danger">
+                  DOB not correct.
+                </div>
 
               </div>
               <div class="form-row">
                 <div class="form-group">
                   <label for="inputEmail4">Email</label>
                   <input type="email" class="form-control" placeholder="Email" formControlName="email">
+                  <div *ngIf="formControls['email'].invalid && formControls['email'].touched" class="text-danger">
+                    Email not valid.
+                  </div>
 
                 </div>
                 <div class="form-group">
                   <label for="inputPassword4">Password</label>
                   <input type="password" class="form-control" placeholder="Password" formControlName="password">
+                  <div *ngIf="formControls['password'].invalid && formControls['password'].touched" class="text-danger">
+                    Password lentgh must be > 6.
+                  </div>
 
                 </div>
               </div>
@@ -95,7 +110,9 @@
                   <option value="seller">seller</option>
                   <option value="buyer">buyer</option>
                 </select>
-
+                <div *ngIf="formControls['role'].invalid && formControls['role'].touched" class="text-danger">
+                 Select a role
+                </div>
               </div>
 
               <div class="form-group mt-2">

@@ -76,24 +76,41 @@
               </form>
               <p routerLink="/sign-in" class="sim-pointer">Already have an account ? Click here for login</p>
           </div>
-          <div class="col-md-6 offset-md-3 mt-4" *ngIf="!regForm">
-              <h3>Login </h3>
-              <form name="form" #tf="ngForm" (ngSubmit)="tf.form.valid && onSubmitSignIn()" novalidate>
-                  <div class="form-group">
-                      <label>Email</label>
-                      <input type="email" class="form-control" name="userEmail" [(ngModel)]="signInFormValue.userEmail" #userEmail="ngModel" required email />
-                  </div>
-                  <div class="form-group">
-                      <label>Password</label>
-                      <input type="password" class="form-control" name="userPassword" [(ngModel)]="signInFormValue.userPassword" #userPassword="ngModel" minlength="6" togglePassword>
-                  </div>
-                  <br>
-                  <div class="form-group">
-                      <button class="btn btn-primary">Login</button>
-                  </div>
-              </form>
-              <p routerLink="/sign-up" class="sim-pointer">Don't have an account? Click here for register</p>
+          <div class="container" *ngIf="!regForm">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="text-center">Login</h3>
+                        </div>
+                        <div class="card-body">
+                            <form name="form" #tf="ngForm" (ngSubmit)="tf.form.valid && onSubmitSignIn()" novalidate>
+                                <div class="form-group">
+                                    <label for="userEmail">Email</label>
+                                    <input type="email" id="userEmail" class="form-control" name="userEmail" [(ngModel)]="signInFormValue.userEmail" #userEmail="ngModel" required email />
+                                </div>
+                                <div class="form-group">
+                                    <label for="userPassword">Password</label>
+                                    <div class="input-group">
+                                        <input type="password" id="userPassword" class="form-control" name="userPassword" [(ngModel)]="signInFormValue.userPassword" #userPassword="ngModel" minlength="6" togglePassword />
+
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer text-center">
+                            <p class="mb-0">Don't have an account? <a routerLink="/sign-up">Click here to register</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
           </div>
       </div>
   </div>
 </div>
+
+

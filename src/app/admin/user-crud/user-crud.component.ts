@@ -31,17 +31,54 @@ export class UserCrudComponent implements OnInit{
   constructor( private formBuilder:FormBuilder, private router:Router,private adminService:AdminService){}
 
   ngOnInit(): void {
+    this.initializeForm();
     this.getAllUser();
+
+  }
+
+  initializeForm(): void {
     this.addEditUserForm = this.formBuilder.group({
       name: ['', Validators.required],
-      mobNumber: ['', Validators.required],
-      dob: ['', Validators.required],
-      email: ['', [Validators.required,]],
-      password: ['', [Validators.required,]],
-      uploadPhoto: ['', Validators.required],
+      mobNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      dob: ['', [Validators.required, this.validateDob]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      uploadPhoto: [''],
       role: ['', Validators.required],
-    })
+    });
   }
+  validateDob(control: any): { [key: string]: boolean } | null {
+    // Check if the control value is a valid date
+    if (!control.value) {
+      return { 'required': true };
+    }
+    const dob = new Date(control.value);
+    const currentDate = new Date();
+
+    if (dob >= currentDate) {
+      return { 'invalidDate': true };
+    }
+
+    return null;
+  }
+  get formControls(){
+    return this.addEditUserForm.controls;
+  }
+
+  handleError(error: any): void {
+    console.error('An error occurred:', error);
+  }
+
+  onSubmit(): void {
+    if (this.addEditUserForm.invalid) {
+      // Mark all fields as touched to display validation errors
+      this.addEditUserForm.markAllAsTouched();
+      return;
+    }
+    // Form is valid, proceed with submission
+    this.addUser();
+  }
+
   getAllUser(){
     this.adminService.allUser().subscribe(data =>{
       this.all_user_data = data;
@@ -49,9 +86,7 @@ export class UserCrudComponent implements OnInit{
       console.log("My error" , error)
     })
   }
-  get rf(){
-    return this.addEditUserForm.controls;
-  }
+
 
   addUserPopup(){
     this.edit_user = false;
@@ -60,7 +95,11 @@ export class UserCrudComponent implements OnInit{
     this.addEditUserForm.reset();
   }
 
+
   addUser(){
+    if (!this.addEditUserForm.dirty) {
+      return; // Exit early if the form has not been edited
+    }
     this.addEditUser = true;
     if(this.addEditUserForm.invalid){
       alert('Error!! :-)\n\n' +JSON.stringify(this.addEditUserForm.value));
