@@ -26,7 +26,9 @@ export class UserCrudComponent implements OnInit{
   edit_user:boolean = false;
   popup_header!:string;
   signInFormValue:any ={}
-
+  showSuccessAlert: boolean = false;
+  showSuccessUpdate: boolean = false;
+  showDelete: boolean = false;
 
   constructor( private formBuilder:FormBuilder, private router:Router,private adminService:AdminService){}
 
@@ -120,9 +122,22 @@ export class UserCrudComponent implements OnInit{
       this.addEditUserForm.reset();
       this.getAllUser();
       $('#addEditUserModal').modal('toggle');
+      this.showSuccessAlert = true;
+      setTimeout(() => {
+        this.showSuccessAlert = false;
+      }, 3000);
     },error=>{
       console.log("my wrong ", error);
     })
+  }
+  dismissAlert() {
+    this.showSuccessAlert = false;
+  }
+  dismissUpdateAlert() {
+    this.showSuccessUpdate = false;
+  }
+  dismissDelete() {
+    this.showDelete = false;
   }
   editUserPopup(user_id:any){
     this.edit_user_id = user_id;
@@ -170,6 +185,11 @@ export class UserCrudComponent implements OnInit{
       this.addEditUserForm.reset()
       this.getAllUser();
       $('#addEditUserModal').modal('toggle');
+      this.showSuccessUpdate = true;
+      setTimeout(() => {
+        this.showSuccessUpdate = false;
+      }, 3000);
+
     },error=>{
       console.log("my wrong ", error);
     })
@@ -177,6 +197,10 @@ export class UserCrudComponent implements OnInit{
   deleteUser(user_id:any){
     this.adminService.deleteUser(user_id).subscribe(data=>{
       this.getAllUser();
+      this.showDelete = true;
+      setTimeout(() => {
+        this.showDelete = false;
+      }, 3000);
     }, error =>{
       console.log("My error", error)
     })

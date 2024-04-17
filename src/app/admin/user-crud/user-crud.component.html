@@ -7,7 +7,19 @@
     data-bs-toggle="modal" data-bs-target="#addEditUserModal">Add
       New User</button></div>
 </div>
-<table class="table table-hover">
+<div *ngIf="showDelete" class="alert alert-danger alert-dismissible fade show" role="alert">
+  User deleted successfully!
+  <button type="button" class="btn-close" (click)="dismissDelete()" aria-label="Close"></button>
+</div>
+<div *ngIf="showSuccessUpdate" class="alert alert-info alert-dismissible fade show" role="alert">
+  User updated successfully!
+  <button type="button" class="btn-close" (click)="dismissUpdateAlert()" aria-label="Close"></button>
+</div>
+<div *ngIf="showSuccessAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+  User added successfully!
+  <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+</div>
+<table class="table table-hover table-responsive">
   <thead>
     <tr>
       <th scope="col">id</th>

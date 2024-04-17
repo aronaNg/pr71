@@ -25,7 +25,7 @@
 <div class="row">
     <div class="col-sm-4 product" *ngFor="let product of all_products;">
         <div class="card">
-            <img src="{{product.uploadPhoto}}" class="card-img-top" alt="{{product.name}}">
+            <img src="{{product.uploadPhoto}}" class="card-img-top" alt="{{product.name}}" style="height: 400px;">
             <div class="card-body">
                 <h4 class="card-title">{{product.name}}</h4>
                 <p><span class="float-left"><strong>Prix</strong>: <del>{{product.mrp}}</del></span> <span class="float-right"><strong> Rabais</strong>:

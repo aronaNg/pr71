@@ -9,8 +9,11 @@
 
     <div *ngIf="showSuccessUpdate" class="alert alert-info alert-dismissible fade show" role="alert">
       Product updated successfully!
-      <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+      <button type="button" class="btn-close" (click)="dismissUpdateAlert()" aria-label="Close"></button>
     </div>
+
+   
+
   </div>
   <div class="col-md-2">
     <button class=" btn btn-dark float-right" type="button" (click)="addProductPopup()" data-bs-toggle="modal" data-bs-target="#addEditProductModal">Add Product</button>

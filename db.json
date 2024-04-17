@@ -111,7 +111,7 @@
       "name": "Machine",
       "uploadPhoto": "./assets/img/2.png",
       "productDesc": "Machine à écrire en parfait état de fonctionnement. Modèle vintage avec une touche de charme rétro. Parfait pour les amateurs de déco rétro ou les collectionneurs nostalgiques.",
-      "mrp": "123",
+      "mrp": "400",
       "dp": "99",
       "status": "publish"
     },
@@ -324,11 +324,11 @@
     },
     {
       "id": "[object Object]1",
-      "name": "me",
-      "uploadPhoto": "aaaaa",
-      "productDesc": "aaaa",
-      "mrp": "12",
-      "dp": "1",
+      "name": "rrr",
+      "uploadPhoto": "test",
+      "productDesc": "desc",
+      "mrp": "100",
+      "dp": "10",
       "status": "publish"
     }
   ],
@@ -542,6 +542,27 @@
       },
       "contact": "0690083421",
       "dateTime": "15/04/2024"
+    },
+    {
+      "id": "0",
+      "userId": 3,
+      "sellerId": 2,
+      "product": {
+        "id": "1",
+        "name": "Globe1",
+        "uploadPhoto": "./assets/img/1.png",
+        "productDesc": "Globe terrestre vintage, témoin silencieux des explorations passées et des horizons à venir. Élégamment monté sur son socle en bois, ce globe capture l'imagination avec ses couleurs subtiles et ses détails précis.",
+        "mrp": "1000",
+        "dp": "499",
+        "status": "publish"
+      },
+      "deliveryAddress": {
+        "id": 0,
+        "addLine1": "Jean jaures",
+        "zipCode": "90001"
+      },
+      "contact": "0690083421",
+      "dateTime": "16/04/2024"
     },
     {
       "id": "0",
